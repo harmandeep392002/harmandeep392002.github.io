@@ -1,3 +1,6 @@
+const paraCount = document.querySelector('p');
+let ballCounter = 0;
+
 // set up canvas
 
 const canvas = document.querySelector("canvas");
@@ -142,6 +145,9 @@ class EvilCircle extends Shape {
     
             if (distance < this.size + ball.size) {
               ball.exists = false;
+
+              ballCounter--;
+              paraCount.textContent = `Ball count: ${ballCounter}`;
             }
           }
         }
@@ -165,6 +171,9 @@ while (balls.length < 25) {
   );
 
   balls.push(ball);
+
+  ballCounter++;
+  paraCount.textContent = `Ball count: ${ballCounter}`;
 }
 
 const evilBall = new EvilCircle(random(0, width), random(0, height));
