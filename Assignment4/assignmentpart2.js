@@ -12,9 +12,18 @@ const altName = {'pic1.jpg': 'Human Eye', 'pic2.jpg': 'Rock', 'pic3.jpg': 'Blue 
 
 /* Looping through images */
 
-const newImage = document.createElement('img');
-newImage.setAttribute('src', xxx);
-newImage.setAttribute('alt', xxx);
-thumbBar.appendChild(newImage);
+for(image of imageName){
+    const newImage = document.createElement('img');
+    newImage.setAttribute('src', `images/${image}`);
+    newImage.setAttribute('alt', altName[image]);
+    thumbBar.appendChild(newImage);
+
+    newImage.addEventListener('click', function(e){
+        displayedImage.src = e.target.src;
+        displayedImage.alt = e.target.alt;
+    });
+};
+
+
 
 /* Wiring up the Darken/Lighten button */
